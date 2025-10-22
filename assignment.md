@@ -15,12 +15,15 @@ Using the `claim` and `car` tables, write a SQL query to return a table containi
 Answer:
 
 ```sql
-SELECT cl.id, claim_date, travel_time, claim_amt
+SELECT 
+  cl.id, 
+  cl.claim_date, 
+  cl.travel_time, 
+  cl.claim_amt,
+  c.car_type,
+  c.car_use
 FROM main.claim cl
-INNER JOIN(
-	SELECT id, car_type, car_use
-	FROM main.car
-) AS c ON cl.car_id = c.id;
+INNER JOIN car c ON cl.car_id = c.id;
 ```
 
 ### Question 2
